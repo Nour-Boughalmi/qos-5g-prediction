@@ -1,0 +1,388 @@
+{
+    "metadata": {
+        "train_samples": 4320,
+        "test_samples": 1440,
+        "features_count": 27,
+        "feature_names": [
+            "cell_id",
+            "cell_type",
+            "slice_type",
+            "throughput_mbps",
+            "latency_ms",
+            "packet_loss_pct",
+            "handover_count",
+            "rsrp_dbm",
+            "rsrq_db",
+            "prb_utilization_pct",
+            "active_users",
+            "sla_compliant",
+            "hour",
+            "day",
+            "day_of_week",
+            "is_weekend",
+            "is_peak_hour",
+            "throughput_mbps_rolling_mean",
+            "throughput_mbps_rolling_std",
+            "latency_ms_rolling_mean",
+            "latency_ms_rolling_std",
+            "packet_loss_pct_rolling_mean",
+            "packet_loss_pct_rolling_std",
+            "prb_utilization_pct_rolling_mean",
+            "prb_utilization_pct_rolling_std",
+            "active_users_rolling_mean",
+            "active_users_rolling_std"
+        ],
+        "extra_columns_detected": [
+            "prb_utilization_pct",
+            "active_users",
+            "sla_compliant"
+        ],
+        "train_period": [
+            "2024-01-01 00:00:00",
+            "2024-01-03 23:59:00"
+        ],
+        "test_period": [
+            "2024-01-04 00:00:00",
+            "2024-01-04 23:59:00"
+        ]
+    },
+    "regression_metrics": {
+        "baseline_linear_regression": {
+            "model": "Baseline Linear Regression",
+            "rmse": 3.6555,
+            "mae": 1.7788,
+            "r2": 0.9656
+        },
+        "random_forest": {
+            "model": "Random Forest Regressor",
+            "rmse": 0.9489,
+            "mae": 0.5997,
+            "r2": 0.9977
+        },
+        "xgboost": {
+            "model": "XGBoost Regressor",
+            "rmse": 0.642,
+            "mae": 0.3682,
+            "r2": 0.9989
+        }
+    },
+    "classification_metrics": {
+        "baseline_logistic_regression": {
+            "model": "Baseline Logistic Regression",
+            "accuracy": 0.7632,
+            "f1_macro": 0.7674,
+            "f1_weighted": 0.764,
+            "recall_macro": 0.7611,
+            "precision_macro": 0.7786,
+            "confusion_matrix": [
+                [
+                    407,
+                    103,
+                    0
+                ],
+                [
+                    174,
+                    575,
+                    23
+                ],
+                [
+                    2,
+                    39,
+                    117
+                ]
+            ],
+            "classification_report": {
+                "bon": {
+                    "precision": 0.6981132075471698,
+                    "recall": 0.7980392156862746,
+                    "f1-score": 0.7447392497712717,
+                    "support": 510.0
+                },
+                "moyen": {
+                    "precision": 0.8019525801952581,
+                    "recall": 0.7448186528497409,
+                    "f1-score": 0.7723304231027536,
+                    "support": 772.0
+                },
+                "dégradé": {
+                    "precision": 0.8357142857142857,
+                    "recall": 0.740506329113924,
+                    "f1-score": 0.785234899328859,
+                    "support": 158.0
+                },
+                "accuracy": 0.7631944444444444,
+                "macro avg": {
+                    "precision": 0.7785933578189046,
+                    "recall": 0.7611213992166466,
+                    "f1-score": 0.7674348574009614,
+                    "support": 1440.0
+                },
+                "weighted avg": {
+                    "precision": 0.7688805450712868,
+                    "recall": 0.7631944444444444,
+                    "f1-score": 0.7639744570226625,
+                    "support": 1440.0
+                }
+            },
+            "recall_bon": 0.798,
+            "recall_moyen": 0.7448,
+            "recall_dégradé": 0.7405
+        },
+        "random_forest": {
+            "model": "Random Forest Classifier",
+            "accuracy": 0.9701,
+            "f1_macro": 0.9635,
+            "f1_weighted": 0.97,
+            "recall_macro": 0.9553,
+            "precision_macro": 0.9726,
+            "confusion_matrix": [
+                [
+                    498,
+                    12,
+                    0
+                ],
+                [
+                    14,
+                    755,
+                    3
+                ],
+                [
+                    2,
+                    12,
+                    144
+                ]
+            ],
+            "classification_report": {
+                "bon": {
+                    "precision": 0.9688715953307393,
+                    "recall": 0.9764705882352941,
+                    "f1-score": 0.97265625,
+                    "support": 510.0
+                },
+                "moyen": {
+                    "precision": 0.9691912708600771,
+                    "recall": 0.977979274611399,
+                    "f1-score": 0.973565441650548,
+                    "support": 772.0
+                },
+                "dégradé": {
+                    "precision": 0.9795918367346939,
+                    "recall": 0.9113924050632911,
+                    "f1-score": 0.9442622950819672,
+                    "support": 158.0
+                },
+                "accuracy": 0.9701388888888889,
+                "macro avg": {
+                    "precision": 0.9725515676418368,
+                    "recall": 0.9552807559699947,
+                    "f1-score": 0.9634946622441717,
+                    "support": 1440.0
+                },
+                "weighted avg": {
+                    "precision": 0.9702192256435683,
+                    "recall": 0.9701388888888889,
+                    "f1-score": 0.9700282299147042,
+                    "support": 1440.0
+                }
+            },
+            "recall_bon": 0.9765,
+            "recall_moyen": 0.978,
+            "recall_dégradé": 0.9114
+        },
+        "xgboost": {
+            "model": "XGBoost Classifier",
+            "accuracy": 0.9889,
+            "f1_macro": 0.9862,
+            "f1_weighted": 0.9889,
+            "recall_macro": 0.9836,
+            "precision_macro": 0.9888,
+            "confusion_matrix": [
+                [
+                    505,
+                    5,
+                    0
+                ],
+                [
+                    4,
+                    766,
+                    2
+                ],
+                [
+                    0,
+                    5,
+                    153
+                ]
+            ],
+            "classification_report": {
+                "bon": {
+                    "precision": 0.9921414538310412,
+                    "recall": 0.9901960784313726,
+                    "f1-score": 0.9911678115799804,
+                    "support": 510.0
+                },
+                "moyen": {
+                    "precision": 0.9871134020618557,
+                    "recall": 0.9922279792746114,
+                    "f1-score": 0.9896640826873385,
+                    "support": 772.0
+                },
+                "dégradé": {
+                    "precision": 0.9870967741935484,
+                    "recall": 0.9683544303797469,
+                    "f1-score": 0.9776357827476039,
+                    "support": 158.0
+                },
+                "accuracy": 0.9888888888888889,
+                "macro avg": {
+                    "precision": 0.9887838766954818,
+                    "recall": 0.9835928293619102,
+                    "f1-score": 0.9861558923383077,
+                    "support": 1440.0
+                },
+                "weighted avg": {
+                    "precision": 0.9888923459501141,
+                    "recall": 0.9888888888888889,
+                    "f1-score": 0.9888768815378727,
+                    "support": 1440.0
+                }
+            },
+            "recall_bon": 0.9902,
+            "recall_moyen": 0.9922,
+            "recall_dégradé": 0.9684
+        }
+    },
+    "anomaly_detection": {
+        "model": "Isolation Forest",
+        "contamination_param": 0.04,
+        "anomalies_detected_train": 173,
+        "anomaly_rate_train": 0.04,
+        "anomalies_detected_test": 86,
+        "anomaly_rate_test": 0.0597
+    },
+    "feature_importances": {
+        "random_forest": [
+            {
+                "feature": "packet_loss_pct",
+                "importance": 0.23133129440090597
+            },
+            {
+                "feature": "latency_ms",
+                "importance": 0.2156723095685784
+            },
+            {
+                "feature": "throughput_mbps",
+                "importance": 0.11701773757184313
+            },
+            {
+                "feature": "sla_compliant",
+                "importance": 0.0888459885468944
+            },
+            {
+                "feature": "active_users",
+                "importance": 0.04494906999833502
+            },
+            {
+                "feature": "packet_loss_pct_rolling_std",
+                "importance": 0.03034520599247285
+            },
+            {
+                "feature": "prb_utilization_pct",
+                "importance": 0.02898354522807025
+            },
+            {
+                "feature": "packet_loss_pct_rolling_mean",
+                "importance": 0.022952790390734456
+            },
+            {
+                "feature": "slice_type",
+                "importance": 0.021552009376940524
+            },
+            {
+                "feature": "latency_ms_rolling_std",
+                "importance": 0.019204615501509193
+            },
+            {
+                "feature": "prb_utilization_pct_rolling_mean",
+                "importance": 0.017861520120319097
+            },
+            {
+                "feature": "throughput_mbps_rolling_std",
+                "importance": 0.014658128991069554
+            },
+            {
+                "feature": "throughput_mbps_rolling_mean",
+                "importance": 0.014657284068294064
+            },
+            {
+                "feature": "latency_ms_rolling_mean",
+                "importance": 0.014416934993201135
+            },
+            {
+                "feature": "rsrp_dbm",
+                "importance": 0.014369207283575379
+            }
+        ],
+        "xgboost": [
+            {
+                "feature": "sla_compliant",
+                "importance": 0.4238530099391937
+            },
+            {
+                "feature": "packet_loss_pct",
+                "importance": 0.16473475098609924
+            },
+            {
+                "feature": "latency_ms",
+                "importance": 0.12567690014839172
+            },
+            {
+                "feature": "slice_type",
+                "importance": 0.08351198583841324
+            },
+            {
+                "feature": "active_users",
+                "importance": 0.06404895335435867
+            },
+            {
+                "feature": "throughput_mbps",
+                "importance": 0.058555133640766144
+            },
+            {
+                "feature": "prb_utilization_pct",
+                "importance": 0.009642028249800205
+            },
+            {
+                "feature": "packet_loss_pct_rolling_std",
+                "importance": 0.006461491342633963
+            },
+            {
+                "feature": "packet_loss_pct_rolling_mean",
+                "importance": 0.005635352339595556
+            },
+            {
+                "feature": "rsrq_db",
+                "importance": 0.005244690924882889
+            },
+            {
+                "feature": "cell_id",
+                "importance": 0.005047500133514404
+            },
+            {
+                "feature": "prb_utilization_pct_rolling_mean",
+                "importance": 0.0046784239821136
+            },
+            {
+                "feature": "latency_ms_rolling_std",
+                "importance": 0.004337625578045845
+            },
+            {
+                "feature": "rsrp_dbm",
+                "importance": 0.004278874956071377
+            },
+            {
+                "feature": "throughput_mbps_rolling_mean",
+                "importance": 0.004198630806058645
+            }
+        ]
+    }
+}
